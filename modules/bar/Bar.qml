@@ -80,10 +80,10 @@ Scope {
                 anchors.bottom: parent.bottom
                 Card {
                     TextIcon {
-                        content: Nettraf.downtraf
+                        content: NetworkManager.downTraffic
                         icon: "\uef09"
                     }
-                    fixedWidth: 72
+                    fixedWidth: 96
                 }
                 Card {
                     TextIcon {
