@@ -62,10 +62,11 @@ Scope {
                 }
                 Card {
                     TextIcon {
-                        icon: Bluelight.icon
+                        icon: Sunsetr.icon
+                        content: Sunsetr.label
                     }
                     tooltipText: "Toggle blue light filter"
-                    leftAction: "arklinux-bluelight-toggle"
+                    leftAction: Sunsetr.toggleCommand
                 }
             }
 
