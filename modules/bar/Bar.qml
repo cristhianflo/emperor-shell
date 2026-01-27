@@ -3,6 +3,7 @@ import Quickshell
 import QtQuick
 import qs.services
 import qs.services.theme
+import qs.services.sunsetr
 
 Scope {
     id: bar
