@@ -10,6 +10,7 @@ Singleton {
 
     property bool isActive: false
     property bool isLoading: true
+    property bool isReady: !isLoading && isActive
 
     property var disabledIcon: "󰜺"
     property var disabledLabel: "Disabled"
