@@ -4,6 +4,7 @@ import QtQuick
 import qs.services
 import qs.services.theme
 import qs.services.sunsetr
+import qs.services.networking
 
 Scope {
     id: bar
@@ -82,8 +83,8 @@ Scope {
                 anchors.bottom: parent.bottom
                 Card {
                     TextIcon {
-                        content: NetworkManager.downTraffic
-                        icon: "\uef09"
+                        content: NetworkManager.traffic.down
+                        icon: NetworkManager.traffic.downIcon
                     }
                     fixedWidth: 96
                 }
