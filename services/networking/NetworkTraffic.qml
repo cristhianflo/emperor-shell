@@ -1,6 +1,7 @@
 import Quickshell
 import QtQuick
 import Quickshell.Io
+import qs.config
 
 Scope {
     // -------------------------------------------------------------------------
@@ -12,9 +13,9 @@ Scope {
     // -------------------------------------------------------------------------
     // Traffic Monitoring
     // -------------------------------------------------------------------------
-    property string downIcon: "󰅢"
+    property string downIcon: Constants.iconPath + "download-cloud-fill.svg"
     property string down: "0 B/s"
-    property string upIcon: "󰅧"
+    property string upIcon: Constants.iconPath + "upload-cloud-fill.svg"
     property string up: "0 B/s"
 
     // -------------------------------------------------------------------------

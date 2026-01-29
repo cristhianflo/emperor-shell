@@ -5,6 +5,7 @@ import qs.services
 import qs.services.theme
 import qs.services.sunsetr
 import qs.services.networking
+import qs.config
 
 Scope {
     id: bar
@@ -33,7 +34,7 @@ Scope {
                 anchors.bottom: parent.bottom
                 Card {
                     TextIcon {
-                        icon: ""
+                        icon: Constants.iconPath + "shutdown-line.svg"
                     }
                     tooltipText: "Open powermenu"
                     leftAction: "arklinux-powermenu"
@@ -41,7 +42,7 @@ Scope {
                 Card {
                     TextIcon {
                         content: ResourceUsage.formatCpuUsage()
-                        icon: ""
+                        icon: Constants.iconPath + "cpu-line.svg"
                     }
                     fixedWidth: 58
                     tooltipText: "Total: " + ResourceUsage.formatCpuUsage()
@@ -49,7 +50,7 @@ Scope {
                 Card {
                     TextIcon {
                         content: ResourceUsage.formatMemoryUsage()
-                        icon: ""
+                        icon: Constants.iconPath + "ram-2-fill.svg"
                     }
                     fixedWidth: 58
                     tooltipText: ResourceUsage.formatUsedMemoryAmount() + " used"
@@ -91,7 +92,7 @@ Scope {
                 Card {
                     TextIcon {
                         content: Audio.volume + "%"
-                        icon: "\uf028"
+                        icon: Constants.iconPath + "volume-up-fill.svg"
                     }
                     tooltipText: "Right click to open pavucontrol"
                     rightAction: "pavucontrol"

@@ -8,7 +8,7 @@ import qs.config
 Singleton {
     id: root
 
-    property string icon: ""
+    property string icon: Constants.iconPath + "keyboard-box-fill.svg"
     property string label
     property var layouts: {
         "English (US)": "US",

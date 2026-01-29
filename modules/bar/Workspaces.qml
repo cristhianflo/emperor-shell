@@ -3,6 +3,7 @@ import QtQuick
 import QtQuick.Layouts
 import qs.services
 import qs.services.theme
+
 RowLayout {
     id: root
 

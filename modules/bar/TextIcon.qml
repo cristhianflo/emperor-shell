@@ -1,6 +1,8 @@
 import QtQuick.Layouts
 import QtQuick
+import Quickshell.Widgets
 import qs.services.theme
+import Qt5Compat.GraphicalEffects
 
 RowLayout {
     id: root
@@ -13,14 +15,27 @@ RowLayout {
         visible: content == ""
     }
 
-    Text {
-        id: icon
+    Item {
+        id: iconContainer
+        width: 16
+        height: 16
         visible: root.icon !== ""
-        text: root.icon
-        font.family: ThemeProvider.getIconFont()
-        font.pixelSize: 16
-        color: root.textColor
-        verticalAlignment: Text.AlignVCenter
+
+        IconImage {
+            id: icon
+            anchors.fill: parent
+            source: root.icon
+            visible: false
+            smooth: true
+        }
+
+        ColorOverlay {
+            anchors.fill: icon
+            source: icon
+            color: root.textColor
+            // Ensure this stays visible
+            visible: icon.status === Image.Ready
+        }
     }
 
     Text {

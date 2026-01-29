@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import Quickshell.Io
+import qs.config
 
 Singleton {
     id: root
@@ -12,7 +13,7 @@ Singleton {
     property bool isLoading: true
     property bool isReady: !isLoading && isActive
 
-    property var disabledIcon: "󰜺"
+    property var disabledIcon: Constants.iconPath + "prohibited-line.svg"
     property var disabledLabel: "Disabled"
 
     required property var activeIcon
