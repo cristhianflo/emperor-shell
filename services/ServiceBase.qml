@@ -13,7 +13,9 @@ Singleton {
     property bool isLoading: true
     property bool isReady: !isLoading && isActive
 
-    property var disabledIcon: Constants.iconPath + "prohibited-line.svg"
+    property string iconPath: Constants.iconPath
+
+    property var disabledIcon: iconPath + "prohibited-line.svg"
     property var disabledLabel: "Disabled"
 
     required property var activeIcon
