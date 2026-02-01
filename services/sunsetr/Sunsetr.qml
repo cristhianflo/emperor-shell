@@ -2,8 +2,7 @@ pragma Singleton
 import Quickshell
 import Quickshell.Io
 import QtQuick
-import qs.services
-import qs.config
+import ".."
 
 ServiceBase {
     // -------------------------------------------------------------------------
@@ -31,11 +30,11 @@ ServiceBase {
     property string toggleCommand: `sunsetr set static_temp=${body.current_temp == root._nightTemp ? root._dayTemp : root._nightTemp}`
 
     readonly property var periodIcons: {
-        "day": Constants.iconPath + "sun-fill.svg",
-        "night": Constants.iconPath + "moon-fill.svg",
-        "sunset": Constants.iconPath + "sun-foggy-fill.svg",
-        "sunrise": Constants.iconPath + "haze-fill.svg",
-        "static": Constants.iconPath + "temp-hot-line.svg"
+        "day": root.iconPath + "sun-fill.svg",
+        "night": root.iconPath + "moon-fill.svg",
+        "sunset": root.iconPath + "sun-foggy-fill.svg",
+        "sunrise": root.iconPath + "haze-fill.svg",
+        "static": root.iconPath + "temp-hot-line.svg"
     }
 
     // -------------------------------------------------------------------------
@@ -80,10 +79,10 @@ ServiceBase {
     }
 
     function toggle(): void {
-        if (!parent.isReady)
+        if (!root.isReady)
             return;
 
-        parent.serviceProc.exec({
+        root.serviceProc.exec({
             command: ["sunsetr", "set", `static_temp=${root.body.current_temp == root._nightTemp ? root._dayTemp : root._nightTemp}`]
         });
     }

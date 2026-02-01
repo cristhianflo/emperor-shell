@@ -33,7 +33,7 @@ Singleton {
     Process {
         id: systemdCheck
         // Remove "running: true" from here, the timer handles it
-        command: ["sh", "-c", `systemctl --user is-active --quiet ${parent.serviceName} || systemctl is-active --quiet ${parent.serviceName} && echo active || echo inactive`]
+        command: ["systemctl", "--user", "is-active", parent.serviceName]
 
         stdout: SplitParser {
             onRead: data => {
