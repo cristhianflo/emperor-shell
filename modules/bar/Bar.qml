@@ -92,8 +92,8 @@ Scope {
                 }
                 Card {
                     TextIcon {
-                        content: Audio.volume + "%"
-                        icon: Constants.iconPath + "volume-up-fill.svg"
+                        content: Audio.label
+                        icon: Audio.icon
                     }
                     tooltipText: "Right click to open pavucontrol"
                     rightAction: "pavucontrol"
