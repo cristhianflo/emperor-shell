@@ -24,6 +24,7 @@ ServiceBase {
 
     property NetworkTraffic traffic: NetworkTraffic {
         device: root.device
+        iconPath: root.iconPath
     }
 
     // -------------------------------------------------------------------------
