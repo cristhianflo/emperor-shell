@@ -80,15 +80,11 @@ ServiceBase {
     }
 
     function toggle(): void {
-        if (!root.isReady)
+        if (!parent.isReady)
             return;
 
-        _sunsetrProc.exec({
+        parent.serviceProc.exec({
             command: ["sunsetr", "set", `static_temp=${root.body.current_temp == root._nightTemp ? root._dayTemp : root._nightTemp}`]
         });
-    }
-
-    Process {
-        id: _sunsetrProc
     }
 }

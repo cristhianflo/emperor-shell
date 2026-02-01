@@ -4,7 +4,7 @@ import Quickshell.Io
 import qs.config
 
 Singleton {
-    id: root
+    id: parent
 
     required property string serviceName
     required property string serviceLabel
@@ -19,8 +19,8 @@ Singleton {
     required property var activeIcon
     required property var activeLabel
 
-    property string icon: root.isActive ? root.activeIcon() : root.disabledIcon
-    property string label: root.isActive ? root.activeLabel() : root.disabledLabel
+    property string icon: parent.isActive ? parent.activeIcon() : parent.disabledIcon
+    property string label: parent.isActive ? parent.activeLabel() : parent.disabledLabel
 
     Timer {
         interval: 5000
@@ -33,14 +33,18 @@ Singleton {
     Process {
         id: systemdCheck
         // Remove "running: true" from here, the timer handles it
-        command: ["sh", "-c", `systemctl --user is-active --quiet ${root.serviceName} || systemctl is-active --quiet ${root.serviceName} && echo active || echo inactive`]
+        command: ["sh", "-c", `systemctl --user is-active --quiet ${parent.serviceName} || systemctl is-active --quiet ${parent.serviceName} && echo active || echo inactive`]
 
         stdout: SplitParser {
             onRead: data => {
                 // "active" is the only output we care about for true
-                root.isActive = (data.trim() === "active");
-                root.isLoading = false;
+                parent.isActive = (data.trim() === "active");
+                parent.isLoading = false;
             }
         }
+    }
+
+    Process {
+        id: serviceProcess
     }
 }
