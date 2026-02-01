@@ -6,6 +6,7 @@ import qs.services.theme
 import qs.services.sunsetr
 import qs.services.networking
 import qs.config
+import "./components/"
 
 Scope {
     id: bar
