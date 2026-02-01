@@ -1,5 +1,5 @@
 //@ pragma UseQApplication
-import "./modules/bar/"
+import qs.modules.bar
 import QtQuick
 import Quickshell
 
