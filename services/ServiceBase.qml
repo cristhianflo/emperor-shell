@@ -9,8 +9,9 @@ Singleton {
     required property string serviceName
     required property string serviceLabel
 
-    property bool isActive: false
-    property bool isLoading: true
+    property string _rawStatus: "unknown"
+    property bool isActive: _rawStatus === "active"
+    property bool isLoading: _rawStatus === "unknown"
     property bool isReady: !isLoading && isActive
 
     property string iconPath: Constants.iconPath
@@ -34,19 +35,12 @@ Singleton {
 
     Process {
         id: systemdCheck
-        // Remove "running: true" from here, the timer handles it
         command: ["systemctl", "--user", "is-active", parent.serviceName]
 
         stdout: SplitParser {
             onRead: data => {
-                // "active" is the only output we care about for true
-                parent.isActive = (data.trim() === "active");
-                parent.isLoading = false;
+                parent._rawStatus = data.trim();
             }
         }
-    }
-
-    Process {
-        id: serviceProcess
     }
 }

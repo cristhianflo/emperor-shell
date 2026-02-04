@@ -82,8 +82,6 @@ ServiceBase {
         if (!root.isReady)
             return;
 
-        root.serviceProc.exec({
-            command: ["sunsetr", "set", `static_temp=${root.body.current_temp == root._nightTemp ? root._dayTemp : root._nightTemp}`]
-        });
+        CommandRunner.exec(["sunsetr", "set", `static_temp=${root.body.current_temp == root._nightTemp ? root._dayTemp : root._nightTemp}`]);
     }
 }
