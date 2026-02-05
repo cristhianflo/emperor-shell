@@ -7,7 +7,7 @@ Theme {
     // Color scheme
     colorPalette: ColorPalette {
         // Base
-        background: Qt.color("#313031")
+        background: "#313031"
         foreground: "#e4e5e4"
 
         // Muted base
@@ -41,7 +41,7 @@ Theme {
     }
 
     // Spacing and layout
-    radius: 0
+    radius: 8
     spacing: 8
     margin: 6
 
