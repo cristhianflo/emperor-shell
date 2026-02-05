@@ -20,7 +20,7 @@ Scope {
             id: barPanel
             required property ShellScreen modelData
             screen: modelData
-            color: ThemeProvider.getColor("background").alpha(0.6)
+            color: ThemeProvider.getColor("muted").toString()
             anchors {
                 top: true
                 left: true

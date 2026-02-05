@@ -14,7 +14,7 @@ WrapperRectangle {
     margin: ThemeProvider.getMargin()
     topMargin: ThemeProvider.getMargin() - 3
     bottomMargin: ThemeProvider.getMargin() - 3
-    radius: ThemeProvider.getRadius() + 6
+    radius: ThemeProvider.getRadius()
 
     child: wsIcon
 
@@ -61,14 +61,14 @@ WrapperRectangle {
         font.pixelSize: 18
         text: root.icon
         property string textColor: isEmpty ? "mutedForeground" : "foreground"
-        color: ThemeProvider.getColor(textColor).value
+        color: ThemeProvider.getColor(textColor).toString()
 
         states: State {
             name: "active"
             when: root.isActive
             PropertyChanges {
                 target: wsIcon
-                color: ThemeProvider.getColor("secondary").value
+                color: ThemeProvider.getColor("secondary").toString()
             }
         }
 

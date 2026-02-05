@@ -12,8 +12,9 @@ WrapperRectangle {
     property ShellScreen screen
     property var panel
 
-    color: ThemeProvider.getColor("card").alpha(0.6)
-    border.color: ThemeProvider.getColor("border").alpha(0.6)
+    color: ThemeProvider.getColor("background").toString()
+    border.color: ThemeProvider.getColor("border").toString()
+
     border.width: 1
     radius: ThemeProvider.getRadius()
     margin: ThemeProvider.getMargin()

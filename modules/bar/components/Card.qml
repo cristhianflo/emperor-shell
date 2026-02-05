@@ -18,8 +18,8 @@ Rectangle {
     property string leftAction: ""
     property string rightAction: ""
 
-    color: ThemeProvider.getColor("card").alpha(0.6)
-    border.color: ThemeProvider.getColor("border").alpha(0.6)
+    color: ThemeProvider.getColor("card").toString()
+    border.color: ThemeProvider.getColor("border").toString()
     border.width: 1
     radius: ThemeProvider.getRadius()
 
@@ -53,7 +53,7 @@ Rectangle {
         name: "hovered"
         when: mouseArea.containsMouse
         PropertyChanges {
-            root.border.color: ThemeProvider.getColor("secondary").alpha(0.6)
+            root.border.color: ThemeProvider.getColor("secondary").toString()
         }
     }
 
