@@ -9,8 +9,8 @@ ServiceBase {
     // Config
     // -------------------------------------------------------------------------
     id: root
-    serviceName: "NetworkManager"
-    serviceLabel: "Network Manager"
+    activeIcon: () => "\uef09"
+    activeLabel: () => ""
 
     // -------------------------------------------------------------------------
     // Public API
@@ -26,12 +26,6 @@ ServiceBase {
         device: root.device
         iconPath: root.iconPath
     }
-
-    // -------------------------------------------------------------------------
-    // UI
-    // -------------------------------------------------------------------------
-    activeIcon: () => "\uef09"
-    activeLabel: () => ""
 
     // -------------------------------------------------------------------------
     // Event-Driven Core (nmcli monitor)

@@ -9,22 +9,15 @@ ServiceBase {
     // Config
     // -------------------------------------------------------------------------
     id: root
-    serviceName: "sunsetr"
-    serviceLabel: "Sunsetr"
+    activeIcon: () => root.periodIcons[body.period] || "󰋙"
+    activeLabel: () => body.current_temp + "K"
+    property int _dayTemp: 6500
+    property int _nightTemp: 3300
 
     // -------------------------------------------------------------------------
     // Public API
     // -------------------------------------------------------------------------
     property SunsetrSocketBody body: SunsetrSocketBody {}
-
-    // -------------------------------------------------------------------------
-    // UI
-    // -------------------------------------------------------------------------
-    activeIcon: () => root.periodIcons[body.period] || "󰋙"
-    activeLabel: () => body.current_temp + "K"
-
-    property int _dayTemp: 6500
-    property int _nightTemp: 3300
 
     // Toggle command
     property string toggleCommand: `sunsetr set static_temp=${body.current_temp == root._nightTemp ? root._dayTemp : root._nightTemp}`
