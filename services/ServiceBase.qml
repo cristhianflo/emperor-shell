@@ -25,17 +25,10 @@ Singleton {
     property string icon: parent.isActive ? parent.activeIcon() : parent.disabledIcon
     property string label: parent.isActive ? parent.activeLabel() : parent.disabledLabel
 
-    Timer {
-        interval: 5000
-        running: true
-        repeat: true
-        triggeredOnStart: true
-        onTriggered: systemdCheck.running = true
-    }
-
     Process {
         id: systemdCheck
         command: ["systemctl", "--user", "is-active", parent.serviceName]
+        running: true
 
         stdout: SplitParser {
             onRead: data => {
