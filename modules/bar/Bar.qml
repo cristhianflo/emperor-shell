@@ -42,16 +42,16 @@ Scope {
                 }
                 Card {
                     TextIcon {
-                        content: ResourceUsage.formatCpuUsage()
-                        icon: Constants.iconPath + "cpu-line.svg"
+                        content: Cpu.activeLabel()
+                        icon: Cpu.activeIcon()
                     }
                     fixedWidth: 58
                     tooltipText: "Total: " + ResourceUsage.formatCpuUsage()
                 }
                 Card {
                     TextIcon {
-                        content: ResourceUsage.formatMemoryUsage()
-                        icon: Constants.iconPath + "ram-2-fill.svg"
+                        content: Memory.activeLabel()
+                        icon: Memory.activeIcon()
                     }
                     fixedWidth: 58
                     tooltipText: ResourceUsage.formatUsedMemoryAmount() + " used"
