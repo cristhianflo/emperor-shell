@@ -5,13 +5,14 @@ import qs.services
 import qs.services.theme
 import qs.services.sunsetr
 import qs.services.networking
+import qs.services.resources
 import qs.config
 import "./components/"
 
 Scope {
     id: bar
 
-    property int height: 34
+    property int height: Style.barHeight
 
     Variants {
         model: Quickshell.screens
@@ -27,7 +28,7 @@ Scope {
                 right: true
             }
 
-            implicitHeight: bar.height + 6
+            implicitHeight: bar.height + Style.margin.sm
 
             BarGroup {
                 anchors.left: parent.left
