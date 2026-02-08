@@ -2,6 +2,7 @@ import QtQuick
 import qs.services
 import qs.services.theme
 import qs.services.tooltip
+import qs.config
 
 Rectangle {
     id: root

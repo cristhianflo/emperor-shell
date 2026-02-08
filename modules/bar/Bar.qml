@@ -6,6 +6,7 @@ import qs.services.theme
 import qs.services.sunsetr
 import qs.services.networking
 import qs.services.resources
+import qs.services.kblayout
 import qs.config
 import "./components/"
 
@@ -43,26 +44,26 @@ Scope {
                 }
                 Card {
                     TextIcon {
-                        content: Cpu.activeLabel()
-                        icon: Cpu.activeIcon()
+                        content: Cpu.label
+                        icon: Cpu.icon
                     }
                     fixedWidth: 58
-                    tooltipText: "Total: " + ResourceUsage.formatCpuUsage()
+                    tooltipText: "Total: " + Cpu.label
                 }
                 Card {
                     TextIcon {
-                        content: Memory.activeLabel()
-                        icon: Memory.activeIcon()
+                        content: Memory.label
+                        icon: Memory.icon
                     }
                     fixedWidth: 58
-                    tooltipText: ResourceUsage.formatUsedMemoryAmount() + " used"
+                    tooltipText: Memory.formatUsedMemoryAmount() + " used"
                 }
                 Card {
                     TextIcon {
                         content: KeyboardLayout.label
                         icon: KeyboardLayout.icon
                     }
-                    leftAction: KeyboardLayout.commands.next
+                    leftAction: KeyboardLayout.loadedCompositor.nextCommand
                     tooltipText: "Change keyboard language"
                 }
                 Card {
