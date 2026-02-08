@@ -15,6 +15,8 @@ Scope {
 
     property int height: Style.barHeight
 
+    property BarConfig config: BarConfig {}
+
     Variants {
         model: Quickshell.screens
 
@@ -35,44 +37,20 @@ Scope {
                 anchors.left: parent.left
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
-                Card {
-                    TextIcon {
-                        icon: PowerManager.icon
+
+                Repeater {
+                    model: bar.config.leftModules
+                    delegate: Card {
+                        required property var modelData
+                        TextIcon {
+                            icon: modelData.icon ?? ""
+                            content: modelData.content ?? ""
+                        }
+                        fixedWidth: modelData.fixedWidth ?? 0
+                        tooltipText: modelData.tooltip ?? ""
+                        leftAction: modelData.leftAction ?? ""
+                        rightAction: modelData.rightAction ?? ""
                     }
-                    tooltipText: "Open powermenu"
-                    leftAction: "arklinux-powermenu"
-                }
-                Card {
-                    TextIcon {
-                        content: Cpu.label
-                        icon: Cpu.icon
-                    }
-                    fixedWidth: 58
-                    tooltipText: "Total: " + Cpu.label
-                }
-                Card {
-                    TextIcon {
-                        content: Memory.label
-                        icon: Memory.icon
-                    }
-                    fixedWidth: 58
-                    tooltipText: Memory.formatUsedMemoryAmount() + " used"
-                }
-                Card {
-                    TextIcon {
-                        content: KeyboardLayout.label
-                        icon: KeyboardLayout.icon
-                    }
-                    leftAction: KeyboardLayout.loadedCompositor.nextCommand
-                    tooltipText: "Change keyboard language"
-                }
-                Card {
-                    TextIcon {
-                        icon: Sunsetr.icon
-                        content: Sunsetr.label
-                    }
-                    tooltipText: "Toggle blue light filter"
-                    leftAction: Sunsetr.toggleCommand
                 }
             }
 
@@ -85,27 +63,19 @@ Scope {
                 anchors.right: parent.right
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
-                Card {
-                    TextIcon {
-                        content: NetworkManager.traffic.down
-                        icon: NetworkManager.traffic.downIcon
+                Repeater {
+                    model: bar.config.rightModules
+                    delegate: Card {
+                        required property var modelData
+                        TextIcon {
+                            icon: modelData.icon ?? ""
+                            content: modelData.content ?? ""
+                        }
+                        fixedWidth: modelData.fixedWidth ?? 0
+                        tooltipText: modelData.tooltip ?? ""
+                        leftAction: modelData.leftAction ?? ""
+                        rightAction: modelData.rightAction ?? ""
                     }
-                    fixedWidth: 96
-                }
-                Card {
-                    TextIcon {
-                        content: Audio.label
-                        icon: Audio.icon
-                    }
-                    tooltipText: "Right click to open pavucontrol"
-                    rightAction: "pavucontrol"
-                }
-                Card {
-                    TextIcon {
-                        content: Time.time
-                    }
-                    tooltipText: "Right click to open Gnome Calendar"
-                    rightAction: "gnome-calendar"
                 }
                 SystemTray {
                     screen: barPanel.modelData
