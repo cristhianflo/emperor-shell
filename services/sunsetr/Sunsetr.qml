@@ -9,7 +9,7 @@ ServiceBase {
     // Config
     // -------------------------------------------------------------------------
     id: root
-    activeIcon: () => root.periodIcons[body.period] || "󰋙"
+    activeIcon: () => root.periodIcons[body.period] || root.periodIcons["static"]
     activeLabel: () => body.current_temp + "K"
     property int _dayTemp: 6500
     property int _nightTemp: 3300
@@ -51,7 +51,7 @@ ServiceBase {
                         root.body.current_gamma = event.current_gamma / 100.0;
                         root.body.active_preset = event.active_preset;
                         root.body.state = event.state;
-                        root.body.progress = event.progress;
+                        root.body.progress = event.progress ?? 0;
                     } else if (event.event_type === "period_changed") {
                         root.body.period = event.to_period || event.period;
                     } else if (event.event_type === "preset_changed") {
