@@ -36,7 +36,7 @@ Scope {
                 anchors.bottom: parent.bottom
                 Card {
                     TextIcon {
-                        icon: Constants.iconPath + "shutdown-line.svg"
+                        icon: PowerManager.icon
                     }
                     tooltipText: "Open powermenu"
                     leftAction: "arklinux-powermenu"
